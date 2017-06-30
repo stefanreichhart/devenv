@@ -19,6 +19,7 @@ function copy_file {
 				echo "Backup old file ($2 => $BAK)"
 				mv "$2" "$BAK"
 			fi
+			mkdir -p "$2"
 			cp -np "$1" "$2"
 		fi
 	fi
@@ -29,6 +30,7 @@ function copy_file {
 
 copy_file ../git/gitignore ~/.gitignore
 copy_file ../git/gitconfig ~/.gitconfig
+copy_file ../ssh/config ~/.ssh/config
 
 # source profile 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
