@@ -1,0 +1,23 @@
+choco upgrade chocolatey
+
+choco upgrade activemq
+choco upgrade curl
+choco upgrade dbeaver
+choco upgrade electron
+choco upgrade erlang
+choco upgrade ffmpeg
+choco upgrade gradle
+choco upgrade hazelcast
+choco upgrade imagemagick
+choco upgrade leanify
+choco upgrade liquibase
+choco upgrade maven
+choco upgrade nginx
+choco upgrade nano
+choco upgrade redis
+choco upgrade sonarcube-scanner
+choco upgrade sonar-runner
+choco upgrade tomcat
+choco upgrade vim
+choco upgrade wget
+choco upgrade wput

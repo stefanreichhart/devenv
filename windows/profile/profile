@@ -1,0 +1,156 @@
+#!/bin/bash
+
+# environment
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+export USERNAME=`id -un | tr '[A-Z]' '[a-z]'`
+export MACHINE_NAME=`hostname -s`
+
+# environment convenience
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+export VOL='/cygdrive/c'
+export APP32="$VOL/Program Files"
+export APP64="$VOL/Program Files (x86)"
+export APP="$APP64"
+export DOC="$HOME/My Documents"
+export DSK="$HOME/Desktop"
+export DWN="$HOME/Downloads"
+export MOV="$HOME/Videos"
+export PIC="$HOME/Pictures"
+export PRF="$HOME/Profile"
+export PRJ="$HOME/Projects"
+export SCR="$PRF/Scripts"
+export SCRLOG="$PRF/scripts.log"
+export TMP="$HOME/Temporary"
+
+# navigation shortcuts
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+alias .='ls -aFl'
+alias ..='cd ..'
+alias cd..='cd ..'
+alias cd.='cd ..'
+alias ...="cd $HOME"
+alias ....='cd /cygdrive'
+alias ll='ls -Fl'
+alias la='ls -aFl'
+
+# goto shortcuts
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+alias root='cd /'
+
+alias vol='cd $VOL'
+alias app32='cd $APP32'
+alias app64='cd $APP64'
+alias app='cd $APP'
+alias home='cd $HOME'
+alias doc='cd $DOC'
+alias dsk='cd $DSK'
+alias dwn='cd $DWN'
+alias mov='cd $MOV'
+alias pic='cd $PIC'
+alias prf='cd $PRF'
+alias prj='cd $PRJ'
+alias scr='cd $SCR'
+alias scrlog='cat $SCRLOG'
+alias tmp='cd $TMP'
+
+# git shortcuts
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+alias gita='git add'
+alias gitb='git branch -a'
+alias gitbr='git branch'
+alias gitci='git commit -a -m'
+alias gitco='git checkout'
+alias gitd='git diff'
+alias gitl='git log'
+alias gitm='git merge'
+alias gitch='git cherry-pick'
+alias gitp='git push'
+alias gitps='git push'
+alias gitr='git remove'
+alias gits='git status'
+alias gitup='git pull'
+alias gitu='git pull'
+alias gitpl='git pull'
+alias gitw='git whatchanged'
+alias gitsu='git fetch; git log --name-only ..origin/master'
+
+alias g='git'
+alias a='git add'
+alias b='git branch'
+alias lb='git branch -a'
+alias br='git branch'
+alias c='git commit -a -m'
+alias ci='git commit -a -m'
+alias co='git checkout'
+alias d='git diff'
+alias l='git log'
+alias m='git merge'
+alias chp='git cherry-pick'
+alias p='git push'
+alias r='git remove'
+alias s='git status'
+alias f='git fetch; git log --name-only ..origin/master'
+alias u='git pull'
+alias what='git whatchanged'
+
+alias gitcp='git commit -a -m "Updating."; git push'
+
+# app shortcuts
+
+alias wsync='rsync -avAHNSX --specials --fileflags --executability '
+alias md5='md5sum.exe'
+alias sha1='sha1sum.exe'
+
+# cleanup shortcuts
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+alias xclean='find . -name "*DS_Store" -print -delete; find . -name "._*" -print -delete'
+alias xcleanquiet='find . -name "*DS_Store" -delete; find . -name "._*" -delete'
+alias wclean='find . -name "desktop.ini"; find . -name "Desktop.ini"'
+alias jclean='find . -name "*.class" -delete'
+alias pyclean='find . -name "*.pyc" -delete'
+
+# windows environment
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+alias w='cygstart .'
+
+# path
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+function log() {
+	if [ ! -f "$SCRLOG" ]; then
+		mkdir -p "$SCR"
+		touch "$SCRLOG"
+	fi
+	echo "$*" >> "$SCRLOG"
+	echo "$*"
+}
+
+function append_to_path() {
+	DIR=$1
+	if [ ! -z "$DIR" ]; then
+		if [ -d "$DIR" ]; then
+			PATH="$PATH:$DIR"
+		fi
+	fi
+}
+
+function append_to_path_deep() {
+	DIR_R=$1
+	append_to_path $DIR_R
+	for DIR1 in $DIR_R/*; do
+		append_to_path $DIR1
+		for DIR2 in $DIR1/*; do
+			append_to_path $DIR_R/$DIR/$DIR2
+		done
+	done
+}
+
+append_to_path_deep "$PRF"
+append_to_path_deep "$SCR"
