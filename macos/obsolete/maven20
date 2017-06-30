@@ -1,0 +1,29 @@
+#!/bin/sh
+
+MAVEN_20=2.0
+MAVEN_CURRENT_LINK=CurrentMAVEN
+MAVEN_VERSIONS=/Developer/Maven/Versions
+
+MAVEN_CURRENT_DIR=$MAVEN_VERSIONS/$MAVEN_CURRENT_LINK
+MAVEN_CURRENT_SET=`readlink $MAVEN_CURRENT_DIR`
+
+echo
+if [ -e $MAVEN_CURRENT_DIR ]; then
+  if [ $MAVEN_CURRENT_SET = $MAVEN_VERSIONS/$MAVEN_20 ]; then
+    echo MAVEN $MAVEN_20 is already set as CURRENT ...
+  else
+    echo Switching to MAVEN $MAVEN_20 ...
+    unlink $MAVEN_VERSIONS/$MAVEN_CURRENT_LINK 
+    ln -s $MAVEN_VERSIONS/$MAVEN_20 $MAVEN_VERSIONS/$MAVEN_CURRENT_LINK
+    echo Current MAVEN is now `readlink $MAVEN_CURRENT_DIR`
+    if [ $MAVEN_VERSIONS/$MAVEN_20 = `readlink $MAVEN_CURRENT_DIR` ]; then
+      mavenproxy 1
+      echo SWITCH SUCCESSFUL
+    else
+      echo ERROR: SWITCH FAILED
+    fi
+  fi
+else
+  echo ERROR: There is no MAVEN set as CURRENT
+fi
+echo

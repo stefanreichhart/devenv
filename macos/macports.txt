@@ -1,0 +1,23 @@
+Databases:
+couchdb GeoLiteCity mongodb mysql4 mysql5 postgresql92 postgresql93 postgresql94 postgresql_select redis sqlite2 sqlite3
+
+Languages:
+erlang lua nodejs python24 python26 python27 python27 python32 python34 python_select
+
+Python-Modules:
+cairo cherrypy3 couchdb crypto cython dns docx geoip httplib2 imdb libxml2 py-mssql oauth2 openpyxl openssl psycopg2 pygresql pylint pyodbc redis routes simplejson sqlite tornado watchdog yaml
+
+Web:
+less nginx 
+
+Varia:
+fontforge fop freetype lynx ps2eps psutils
+
+Multimedia:
+flac lame libogg libtheora libvorbis swfdec swftools
+
+Graphics:
+ghostscript graphviz  ImageMagick jasper libexif libpng libxmi libpixman
+
+System:
+autoconf automake bison cmake gmake bzip2 dbus gawk gsl md5sha1sum mono openssl pstree rsync wget wput

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#preprocessing
+sed -n 's/\**// gw tmp' "$1"
+mv tmp "$1"
+sed -n 's/\**// gw tmp' "$2"
+mv tmp "$2"
+
+# diffing
+diff -w --ignore-file-name-case "$1" "$2"

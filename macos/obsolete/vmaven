@@ -1,0 +1,8 @@
+#!/bin/sh
+
+MAVEN_CURRENT_LINK=CurrentMAVEN
+MAVEN_VERSIONS=/Developer/Maven/Versions
+MAVEN_CURRENT_DIR=$MAVEN_VERSIONS/$MAVEN_CURRENT_LINK
+echo
+echo MAVEN `readlink $MAVEN_CURRENT_DIR` is set as CURRENT
+echo

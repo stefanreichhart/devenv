@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -avNSX --specials --fileflags --executability "$1" "$2"

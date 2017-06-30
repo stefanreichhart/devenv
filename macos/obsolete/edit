@@ -1,0 +1,6 @@
+#!/bin/sh
+
+APPLICATIONS=/Applications
+EDITOR= TextEdit.app
+
+open $APPLICATIONS/$EDITOR $1 &

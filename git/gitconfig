@@ -1,0 +1,26 @@
+[alias]
+	wdiff = diff --color-words
+	wshow = show --color-words
+
+[user]
+	name = Stefan Reichhart
+	email = stefan.reichhart@gmail.com
+
+[branch]
+	autosetupmerge = true
+
+[core]
+	editor = nano
+
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+	ui = true
+
+[merge]
+	tool = opendiff
+
+[difftool]
+	prompt = false

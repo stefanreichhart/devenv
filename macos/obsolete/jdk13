@@ -1,0 +1,24 @@
+#!/bin/sh
+
+JDK_13=1.3.1
+JDK_CURRENT_LINK=CurrentJDK
+JDK_CURRENT_LINK_BASE=Current
+JDK_VERSIONS=/System/Library/Frameworks/JavaVM.framework/Versions
+
+JDK_CURRENT_DIR=$JDK_VERSIONS/$JDK_CURRENT_LINK
+JDK_CURRENT_SET=`readlink $JDK_CURRENT_DIR`
+
+if [ -e $JDK_CURRENT_DIR ]; then
+  if [ $JDK_CURRENT_SET = $JDK_13 -o $JDK_CURRENT_SET = $JDK_VERSIONS/$JDK_13 ]; then
+    echo JDK $JDK_13 is already set ...
+  else
+    echo Switching to JDK $JDK_13 ...
+    sudo unlink $JDK_VERSIONS/$JDK_CURRENT_LINK
+    sudo ln -s $JDK_VERSIONS/$JDK_13 $JDK_VERSIONS/$JDK_CURRENT_LINK
+	sudo unlink $JDK_VERSIONS/$JDK_CURRENT_LINK_BASE
+	sudo ln -s $JDK_VERSIONS/$JDK_CURRENT_LINK $JDK_VERSIONS/$JDK_CURRENT_LINK_BASE
+    vjdk
+  fi
+else
+  echo There is no JDK set as CURRENT
+fi

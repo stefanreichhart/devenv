@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for i in $(find . -name ".svn") 
+do
+	rm -dfr $i
+done

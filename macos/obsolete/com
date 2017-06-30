@@ -1,0 +1,7 @@
+#!/bin/sh
+
+COMMENT='"''"'
+if [ $# <> 0 ]; then
+	COMMENT='"'$*'"'
+fi
+svn commit -m $COMMENT

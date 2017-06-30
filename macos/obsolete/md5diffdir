@@ -1,0 +1,39 @@
+#!/bin/sh
+
+CURRENT=`pwd`
+COPY="$1"
+ORIG="$2"
+
+if [ -e "$ORIG" ]
+then
+	cd $ORIG
+	if [ -e "$COPY" ]
+	then
+		for F in *.md5; do
+			if [ -e "$COPY/$F" ]
+			then
+				md5diff "$F" "$COPY/$F"
+			fi
+		done
+	else
+		if [ -e "$CURRENT/$COPY" ]
+		then
+			COPY="$CURRENT/$COPY"
+			for F in *.md5; do
+				if [ -e "$COPY/$F" ]
+				then
+					md5diff "$F" "$COPY/$F"
+				else
+					echo "  [info] $F not checked"
+				fi
+			done
+		else
+			echo "  [error] $COPY does not exist or cannot be processed"
+			echo "  [help]  use absolute path names"
+		fi
+	fi
+	cd $CURRENT
+else
+        echo "  [error] $ORIG does not exist or cannot be processed"
+	echo "  [help]  use absolute path names"
+fi

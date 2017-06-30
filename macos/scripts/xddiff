@@ -1,0 +1,39 @@
+#!/bin/sh
+
+APP=[xdiff]
+ARG1=$1
+TMP1=.diff1
+ARG2=$2
+TMP2=.diff2
+
+
+if (test -e "$ARG1") then
+	if (test -e "$ARG2") then
+		if ( test -f "$ARG1" || test -f "$ARG2" ) then
+			diff -y "$ARG1" "$ARG2"
+		else
+			for f in `ls $ARG1`; do
+				echo
+				if (test -e "$ARG2/$f") then
+					echo ------------------------------ $ARG1/$f : $ARG2/$f ------------------------------
+					echo
+					xdiff "$ARG1/$f" "$ARG2/$f"
+				else
+					echo  ------------------------------ < $ARG1: $1  ------------------------------
+				fi
+			done
+			for f in `ls $ARG2`; do
+				if (test ! -e "$ARG1/$f") then
+					echo
+					echo  ------------------------------ > $ARG2: $f  ------------------------------
+				fi
+			done
+		fi
+	else
+		echo "$APP" "$ARG2" does not exist
+		echo "$APP" nothing to compare
+	fi
+else
+	echo "$APP" "$ARG1" does not exist
+	echo "$APP" nothing to compare
+fi

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+CURRENT=`pwd`
+
+if [ ! $# = 2 ]
+then
+	echo "  [error] too few arguments"
+	echo "  [info]  md5check <dir> <dir_with_original_md5_checksums>"
+else
+	if [ ! -e $1 ]
+	then
+		echo "  [error] directory to be checked doesn't exist"
+	else
+		if [ ! -e $2 ]
+		then
+			echo "  [error] directory with original md5 checksums doesn't exist"
+		else
+			COPY="$1"
+			ORIGMD5="$2"
+			COPYMD5="$TMP/checksum_copy_`date "+%m%d%y%H%M%S"`"
+			md5make "$1" "$COPYMD5"
+			md5diffdir $ORIGMD5 $COPYMD5
+			rm -rfd $COPYMD5
+		fi
+	fi
+fi

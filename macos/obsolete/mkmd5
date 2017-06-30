@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for TYPE in $*; do
+	for FILE in *.$TYPE; do
+		md5sum "$FILE" > "$FILE.md5"
+	done
+done

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+echo
+echo "FORCE COMPATIBILITY WITH WINDOWS"
+echo
+echo "THIS IS DANGEROUS, MIGHT DESTROY OSX APPLICATION-INTEGRITY"
+echo "DUE REMOVED ICONS ..."
+echo
+echo "REMOVES ALL OSX ICONS RECURSIVELY, THIS CANNOT BE UNDONE"
+echo
+echo "CONTINUE ? (yes/no)"
+echo
+read VAR
+if [ $VAR = "yes" ]
+then 
+	echo
+	echo "START DELETING IN 5 SECONDS"
+	echo
+	COUNTER=5
+	while [ "$COUNTER" -gt "0" ]
+	do
+		echo $COUNTER
+		COUNTER=`expr $COUNTER - 1`
+		sleep 1
+	done
+	sleep 2 
+	find . -name "Icon?" -print -delete
+fi
+
+

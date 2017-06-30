@@ -1,0 +1,31 @@
+#!/bin/sh
+
+CURRENT=`cd`
+TARGET="$1"
+DATE=`date "+%m%d%y%H%M%S"`
+DESTINATION="$TMP/checksum_$DATE"
+
+if [ $# = 2 ]
+then
+	DESTINATION="$2"
+else
+        echo "  [info] destination auto-generated: $DESTINATION"
+fi
+
+if [ ! -e "$DESTINATION" ]
+then
+	mkdir $DESTINATION
+fi
+
+if [ -e "$TARGET" ]
+then
+	cd "$TARGET"
+	for F in *.*; do
+		md5sum "$F" > $DESTINATION/"$F.md5"
+	done
+	cd "$CURRENT"
+else
+	echo "  [error] $TARGET does not exist or cannot be processed"
+	echo "  [help]  use '""'double-quote'""' for long file names as parameters"
+fi
+

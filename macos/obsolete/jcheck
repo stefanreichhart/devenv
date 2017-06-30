@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# default values
+ROOT=.
+FORMAT="plain"
+STYLES=$CHECKSTYLE/Styles
+PROPERTIES=$STYLES/default_properties
+STYLE=$STYLES/default_checkstyle.xml
+
+# parse input
+case $# in
+3)
+	FORMAT=$3
+	STYLE=$2
+	ROOT=$1;;
+2)
+	STYLE=$2
+	ROOT=$1;;
+1)
+	ROOT=$1;;	
+esac
+
+OUTPUT=output.$FORMAT
+
+#execute
+COMMANDS="-r $ROOT -c $STYLE -f $FORMAT -p $PROPERTIES -o $ROOT/$OUTPUT"
+java -jar $CHECKSTYLE/checkstyle-all-4.2.jar $COMMANDS
