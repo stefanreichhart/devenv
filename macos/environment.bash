@@ -12,7 +12,8 @@ export MACHINE_NAME=`hostname -s`
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 export CLASSPATH="$CLASSPATH:$OPTLOCAL_CLASSPATHS"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home"
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
 export DERBY_HOME="$JAVA_HOME/db"
 
 alias derbyinfo="java -jar $DERBY_HOME/lib/derbyrun.jar sysinfo"
@@ -20,7 +21,7 @@ alias derbyinfo="java -jar $DERBY_HOME/lib/derbyrun.jar sysinfo"
 # android sdk
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-export ANDROID="/adt/sdk/build-tools:/adt/sdk/platform-tools:/adt/sdk/platform-tools:/adt/sdk/tools"
+export ANDROID="/adt/sdk/build-tools:/adt/sdk/platform-tools:/adt/sdk/platform-tools:/adt/sdk/tools:/adt/tools:/adt/tools/bin:/adt/flutter/bin"
 
 # macports
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

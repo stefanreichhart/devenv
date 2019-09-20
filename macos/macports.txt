@@ -21,3 +21,5 @@ ghostscript graphviz  ImageMagick jasper libexif libpng libxmi libpixman
 
 System:
 autoconf automake bison cmake gmake bzip2 dbus gawk gsl md5sha1sum mono openssl pstree rsync wget wput
+
+curl ffmpeg flac flex fontconfig fontforge freetype gawk ghostscript gradle graphviz gzip ImageMagick jasper jbig2dec jbigkit jpeg lame less libexif libogg libpixman libpng libraw librsvg libtheora libyaml lynx maven1 maven2 maven32 maven3 maven_select nginx npm6 nodejs12 openjpeg openjpeg15 openssl  poppler postgresql96 postgresql_select  ps2eps pstree psutils  py-geoip py-pil python27 python34 python36 python37 python_select rsync siege sqlite2 sqlite3 swfdec swftools texinfo tiff texlive wget wput x264 x265 XviD maven3 maven_select libwmf libraw libicns libemf giflib libpng mplayer-devel libmpeg2 libogg libaacs libquicktime go scheme48 scala2.9 ocaml lua elixir clojure erlang swi-prolog
