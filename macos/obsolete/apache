@@ -1,5 +1,0 @@
-#!/bin/sh
-
-echo "Restarting Apache Server ..."
-sudo apachectl -t
-sudo apachectl graceful

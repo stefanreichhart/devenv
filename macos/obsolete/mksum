@@ -1,4 +1,0 @@
-#!/bin/sh
-
-mkmd5 "$*"
-mksha1 "$*"

@@ -1,5 +1,0 @@
-#!/bin/sh
-
-ln -s /Applications/Squeak/SqueakV3.sources  SqueakV3.sources
-ln -s /Applications/Squeak/SqueakV39.sources  SqueakV39.sources
-ln -s /Applications/Squeak/SqueakFFIPrims.dll  SqueakFFIPrims.dll

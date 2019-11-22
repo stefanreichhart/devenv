@@ -1,6 +1,0 @@
-#!/bin/sh
-
-for i in $(find . -name "out") 
-do
-	rm -rfd $i
-done

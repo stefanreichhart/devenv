@@ -1,7 +1,0 @@
-#!/bin/sh
-
-JDK_CURRENT_LINK=CurrentJDK
-JDK_VERSIONS=/System/Library/Frameworks/JavaVM.framework/Versions
-JDK_CURRENT_DIR=$JDK_VERSIONS/$JDK_CURRENT_LINK
-
-echo CURRENT Java version is JDK `readlink $JDK_CURRENT_DIR`
