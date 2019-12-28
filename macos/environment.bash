@@ -15,4 +15,6 @@ export PROFILE_PATH="$BASH_DIR"
 alias prf='cd $PROFILE_PATH'
 
 export SCRIPTS_PATH="$BASH_DIR/scripts"
+export PATH="$PATH:$SCRIPTS_PATH"
 alias scr='cd $SCRIPTS_PATH'
+
