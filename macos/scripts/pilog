@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh pi@192.168.2.2 "cat /var/log/auth.log | grep -i fail; cat /var/log/auth.log.1 | grep -i fail"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASH_DIR=`dirname $BASH_SOURCE`
+BASH_DIR=`dirname $0`
 
 # environment
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

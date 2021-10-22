@@ -3,7 +3,7 @@
 # setup functions 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-BASH_DIR=`dirname $BASH_SOURCE`
+BASH_DIR=`dirname $0`
 
 DATE_NOW=`date +"%Y-%m-%d_%H:%M:%S"`
 
