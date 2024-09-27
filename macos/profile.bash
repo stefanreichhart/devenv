@@ -17,4 +17,3 @@ source $BASH_DIR/navigation.bash
 source $BASH_DIR/network.bash
 source $BASH_DIR/ruby.bash
 source $BASH_DIR/terminal.bash
-source $BASH_DIR/ypsomed/ypsomed.bash
